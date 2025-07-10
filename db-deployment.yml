@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learner-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: learner-db
+  template:
+    metadata:
+      labels:
+        app: learner-db
+    spec:
+      containers:
+        - name: learner-db
+          image: postgres:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: learner-db-vol
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+            - name: POSTGRES_DB
+              value: postgres
+      volumes:
+        - name: learner-db-vol
+          persistentVolumeClaim:
+            claimName: hostpath-pvc

@@ -1,0 +1,6 @@
+[submodule "learner"]
+	path = learner
+	url = https://github.com/VibuRoshin25/Go-Learner-Project
+[submodule "learner-auth"]
+	path = learner-auth
+	url = https://github.com/VibuRoshin25/Node-Learner-Project
