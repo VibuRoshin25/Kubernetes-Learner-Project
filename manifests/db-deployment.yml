@@ -16,9 +16,6 @@ spec:
         - name: learner-db
           image: postgres:latest
           imagePullPolicy: Always
-          volumeMounts:
-            - mountPath: /var/lib/postgresql/data
-              name: learner-db-vol
           env:
             - name: POSTGRES_USER
               value: postgres
@@ -26,7 +23,10 @@ spec:
               value: postgres
             - name: POSTGRES_DB
               value: postgres
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: hostpath-pv
       volumes:
-        - name: learner-db-vol
+        - name: hostpath-pv
           persistentVolumeClaim:
             claimName: hostpath-pvc

@@ -4,3 +4,6 @@
 [submodule "learner-auth"]
 	path = learner-auth
 	url = https://github.com/VibuRoshin25/Node-Learner-Project
+[submodule "learner-logger"]
+	path = learner-logger
+	url = https://github.com/VibuRoshin25/gRPC-Learner-Project

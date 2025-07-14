@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learner-logger
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: learner-logger
+  template:
+    metadata:
+      labels:
+        app: learner-logger
+    spec:
+      containers:
+        - name: learner-logger
+          image: viburoshin25/learner-logger:latest
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /app/logs
+              name: logger-pv
+      volumes:
+        - name: logger-pv
+          persistentVolumeClaim:
+            claimName: logger-pvc

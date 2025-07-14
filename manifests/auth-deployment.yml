@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: learner-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: learner-auth
+  template:
+    metadata:
+      labels:
+        app: learner-auth
+    spec:
+      containers:
+        - name: learner-auth
+          image: viburoshin25/learner-auth:latest
+          imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8000
+            periodSeconds: 10

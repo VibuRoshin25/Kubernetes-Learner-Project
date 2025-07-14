@@ -12,6 +12,15 @@ services:
     volumes:
       - learner-vol:/var/lib/postgresql/data
 
+  logger:
+    build: ./learner-logger
+    ports:
+      - "9000:9000"
+    networks:
+      - app-network
+    volumes:
+      - ./learner-logger/logs:/app/logs
+
   auth:
     build: ./learner-auth
     ports:
@@ -28,9 +37,11 @@ services:
       - DB_USER=postgres
       - DB_PASSWORD=server
       - DB_NAME=postgres
-      - AUTH_HOST=auth
+      - AUTH_HOST=auth:8000
+      - LOGGER_HOST=logger:9000
     depends_on:
       - db
+      - logger
       - auth
     networks:
       - app-network
@@ -44,4 +55,10 @@ volumes:
     driver_opts:
       type: none
       device: ./learner-vol
+      o: bind
+  learner-logger-vol:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./learner-logger/logs
       o: bind
