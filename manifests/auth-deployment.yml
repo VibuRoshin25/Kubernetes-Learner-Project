@@ -16,8 +16,3 @@ spec:
         - name: learner-auth
           image: viburoshin25/learner-auth:latest
           imagePullPolicy: Always
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8000
-            periodSeconds: 10

@@ -32,6 +32,6 @@ spec:
             - name: DB_NAME
               value: postgres
             - name: AUTH_HOST
-              value: learner-auth
+              value: learner-auth:8000
             - name: LOGGER_HOST
               value: learner-logger:9000
