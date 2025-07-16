@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: learner-auth
+  name: vibrox-auth
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: learner-auth
+      app: vibrox-auth
   template:
     metadata:
       labels:
-        app: learner-auth
+        app: vibrox-auth
     spec:
       containers:
-        - name: learner-auth
-          image: viburoshin25/learner-auth:latest
+        - name: vibrox-auth
+          image: viburoshin25/vibrox-auth:latest
           imagePullPolicy: Always

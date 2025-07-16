@@ -10,26 +10,26 @@ services:
     networks:
       - app-network
     volumes:
-      - learner-vol:/var/lib/postgresql/data
+      - vibrox-vol:/var/lib/postgresql/data
 
   logger:
-    build: ./learner-logger
+    build: ./vibrox-echo
     ports:
       - "9000:9000"
     networks:
       - app-network
     volumes:
-      - ./learner-logger/logs:/app/logs
+      - ./vibrox-echo/logs:/app/logs
 
   auth:
-    build: ./learner-auth
+    build: ./vibrox-auth
     ports:
       - "8000:8000"
     networks:
       - app-network
 
   app:
-    build: ./learner
+    build: ./vibrox-core
     ports:
       - "8080:8080"
     environment:
@@ -50,15 +50,15 @@ networks:
   app-network:
 
 volumes:
-  learner-vol:
+  vibrox-vol:
     driver: local
     driver_opts:
       type: none
-      device: ./learner-vol
+      device: ./vibrox-vol
       o: bind
-  learner-logger-vol:
+  vibrox-echo-vol:
     driver: local
     driver_opts:
       type: none
-      device: ./learner-logger/logs
+      device: ./vibrox-echo/logs
       o: bind

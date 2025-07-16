@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: learner-logger
+  name: vibrox-echo
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: learner-logger
+      app: vibrox-echo
   template:
     metadata:
       labels:
-        app: learner-logger
+        app: vibrox-echo
     spec:
       containers:
-        - name: learner-logger
-          image: viburoshin25/learner-logger:latest
+        - name: vibrox-echo
+          image: viburoshin25/vibrox-echo:latest
           imagePullPolicy: Always
           volumeMounts:
             - mountPath: /app/logs

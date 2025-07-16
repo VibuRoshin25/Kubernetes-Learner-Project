@@ -1,9 +1,6 @@
-[submodule "learner"]
-	path = learner
-	url = https://github.com/VibuRoshin25/Go-Learner-Project
-[submodule "learner-auth"]
-	path = learner-auth
-	url = https://github.com/VibuRoshin25/Node-Learner-Project
-[submodule "learner-logger"]
-	path = learner-logger
-	url = https://github.com/VibuRoshin25/gRPC-Learner-Project
+[submodule "vibrox-core"]
+    url = https://github.com/your-username/vibrox-core.git
+[submodule "vibrox-auth"]
+    url = https://github.com/your-username/vibrox-auth.git
+[submodule "vibrox-echo"]
+    url = https://github.com/your-username/vibrox-echo.git

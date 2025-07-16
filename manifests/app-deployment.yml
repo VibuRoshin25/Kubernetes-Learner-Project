@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: learner
+  name: vibrox-core
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: learner
+      app: vibrox-core
   template:
     metadata:
       labels:
-        app: learner
+        app: vibrox-core
     spec:
       containers:
-        - name: learner
-          image: viburoshin25/learner:latest
+        - name: vibrox-core
+          image: viburoshin25/vibrox-core:latest
           imagePullPolicy: Always
           livenessProbe:
             httpGet:
@@ -24,7 +24,7 @@ spec:
             initialDelaySeconds: 10
           env:
             - name: DB_HOST
-              value: learner-db
+              value: vibrox-db
             - name: DB_USER
               value: postgres
             - name: DB_PASSWORD
@@ -32,6 +32,6 @@ spec:
             - name: DB_NAME
               value: postgres
             - name: AUTH_HOST
-              value: learner-auth:8000
+              value: vibrox-auth:8000
             - name: LOGGER_HOST
-              value: learner-logger:9000
+              value: vibrox-echo:9000

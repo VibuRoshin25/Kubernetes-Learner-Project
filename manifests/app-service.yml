@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: learner
+  name: vibrox-core
 spec:
   selector:
-    app: learner
+    app: vibrox-core
   ports:
     - protocol: "TCP"
       port: 80
