@@ -1,6 +1,9 @@
 [submodule "vibrox-core"]
-    url = https://github.com/your-username/vibrox-core.git
+	url = https://github.com/VibuRoshin25/vibrox-core
+	path = vibrox-core
 [submodule "vibrox-auth"]
-    url = https://github.com/your-username/vibrox-auth.git
+	url = https://github.com/VibuRoshin25/vibrox-auth
+	path = vibrox-auth
 [submodule "vibrox-echo"]
-    url = https://github.com/your-username/vibrox-echo.git
+	url = https://github.com/VibuRoshin25/vibrox-echo
+	path = vibrox-echo
